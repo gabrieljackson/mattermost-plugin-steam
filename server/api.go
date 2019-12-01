@@ -53,7 +53,6 @@ func (p *Plugin) ServeHTTP(c *plugin.Context, w http.ResponseWriter, r *http.Req
 }
 
 func (p *Plugin) handleUserInfo(w http.ResponseWriter, r *http.Request) {
-	p.API.LogError(r.Header.Get("Mattermost-User-ID"))
 	userID := r.Header.Get("Mattermost-User-ID")
 	if userID == "" {
 		http.Error(w, "Not authorized", http.StatusUnauthorized)
@@ -94,8 +93,6 @@ func (p *Plugin) handleUserInfo(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
 		return
 	}
-
-	p.API.LogError(string(data))
 
 	w.Write(data)
 }
