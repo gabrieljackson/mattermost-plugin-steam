@@ -104,7 +104,7 @@ func (p *Plugin) ExecuteCommand(c *plugin.Context, args *model.CommandArgs) (*mo
 
 func (p *Plugin) runInfoCommand(args []string, extra *model.CommandArgs) (*model.CommandResponse, bool, error) {
 	resp := fmt.Sprintf("Steam plugin version: %s, "+
-		"[%s](https://github.com/gabrieljackson/mattermost-steam-plugin/commit/%s), built %s\n\n",
+		"[%s](https://github.com/gabrieljackson/mattermost-plugin-steam/commit/%s), built %s\n\n",
 		manifest.Version, BuildHashShort, BuildHash, BuildDate)
 
 	keys, appErr := p.API.KVList(0, 1000)
