@@ -1,4 +1,4 @@
-# Mattermost Steam Plugin
+# Mattermost Steam Plugin [![CircleCI](https://circleci.com/gh/gabrieljackson/mattermost-plugin-steam.svg?style=shield)](https://circleci.com/gh/gabrieljackson/mattermost-plugin-steam)
 
 Integrate [Mattermost](https://mattermost.com) with [Steam](https://store.steampowered.com)!
 
