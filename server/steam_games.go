@@ -6,16 +6,18 @@ import (
 	"strings"
 )
 
+//GamesListResponse is an API response for a list of Steam games.
 type GamesListResponse struct {
 	Response GamesList `json:"response"`
 }
 
+// GamesList is a list of Steam games.
 type GamesList struct {
 	GameCount int64  `json:"game_count"`
 	Games     []Game `json:"games"`
 }
 
-// Game represents a Steam game.
+// Game is a Steam game.
 type Game struct {
 	AppID           int64  `json:"appid"`
 	Name            string `json:"name"`
@@ -46,16 +48,19 @@ type GameStoreData struct {
 	Genres      []GameGenres     `json:"genres"`
 }
 
+// GameMetacritic is Metacritic information for a game.
 type GameMetacritic struct {
 	Score int    `json:"score"`
 	URL   string `json:"url"`
 }
 
+// GameCategories is category information for a game.
 type GameCategories struct {
 	ID          int    `json:"id"`
 	Description string `json:"description"`
 }
 
+// GameGenres is genre information for a game.
 type GameGenres struct {
 	ID          string `json:"id"`
 	Description string `json:"description"`
@@ -86,6 +91,7 @@ func (g *Game) PopulateStoreData() error {
 	return nil
 }
 
+// CategoriesToString returns game category information in string form.
 func (d *GameStoreData) CategoriesToString() string {
 	var categories []string
 	for _, category := range d.Categories {
@@ -95,6 +101,7 @@ func (d *GameStoreData) CategoriesToString() string {
 	return strings.Join(categories, ", ")
 }
 
+// GenresToString returns game genre information in string form.
 func (d *GameStoreData) GenresToString() string {
 	var genres []string
 	for _, genre := range d.Genres {

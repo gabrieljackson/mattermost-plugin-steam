@@ -26,7 +26,7 @@ func (p *Plugin) runListRecentGamesCommand(args []string, extra *model.CommandAr
 	gamesReference := make(map[int64]Game)
 
 	for _, key := range keys {
-		result, err := p.makeSteamAPICall(key, STEAM_API_RECENTLYPLAYEDGAMES)
+		result, err := p.makeSteamAPICall(key, steamAPIRecentlyPlayedGames)
 		if err != nil {
 			p.API.LogError(errors.Wrapf(err, "unable to get recently-played games for %s", key).Error())
 			continue

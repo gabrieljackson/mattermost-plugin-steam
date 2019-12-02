@@ -27,7 +27,7 @@ func (p *Plugin) runCompareGamesCommand(args []string, extra *model.CommandArgs)
 	}
 
 	// Start by getting your game list.
-	result, err := p.makeSteamAPICall(extra.UserId+SteamUserKey, STEAM_API_GETOWNEDGAMES)
+	result, err := p.makeSteamAPICall(extra.UserId+SteamUserKey, steamAPIGetOwnedGames)
 	if err != nil {
 		return nil, false, err
 	}
@@ -38,7 +38,7 @@ func (p *Plugin) runCompareGamesCommand(args []string, extra *model.CommandArgs)
 	}
 
 	for _, userID := range userList {
-		result, err := p.makeSteamAPICall(userID+SteamUserKey, STEAM_API_GETOWNEDGAMES)
+		result, err := p.makeSteamAPICall(userID+SteamUserKey, steamAPIGetOwnedGames)
 		if err != nil {
 			return nil, false, err
 		}

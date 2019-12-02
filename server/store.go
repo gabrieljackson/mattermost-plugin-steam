@@ -18,13 +18,15 @@ const (
 	// that fails on a race.
 	StoreSteamRetries = 3
 
+	// SteamUserKey is the store suffix for a Steam profile.
 	SteamUserKey = "_steam_user"
 
-	STEAM_API_GETOWNEDGAMES       = "IPlayerService/GetOwnedGames/v0001"
-	STEAM_API_RECENTLYPLAYEDGAMES = "IPlayerService/GetRecentlyPlayedGames/v0001"
-	STEAM_API_GETSCHEMAFORGAME    = "IPlayerService/GetSchemaForGame/v0001"
+	steamAPIGetOwnedGames       = "IPlayerService/GetOwnedGames/v0001"
+	steamAPIRecentlyPlayedGames = "IPlayerService/GetRecentlyPlayedGames/v0001"
+	steamAPIGetSchemaForGame    = "IPlayerService/GetSchemaForGame/v0001"
 )
 
+// SteamUserInfo is the Steam profile information stored in the database.
 type SteamUserInfo struct {
 	MattermostUserID string        `json:"mattermost_user_id"`
 	SteamID          string        `json:"steam_id"`
@@ -32,6 +34,7 @@ type SteamUserInfo struct {
 	Settings         *UserSettings `json:"user_settings"`
 }
 
+// UserSettings are user-specific settings that they can control.
 type UserSettings struct {
 	ShowProfile bool `json:"show_profile"`
 }

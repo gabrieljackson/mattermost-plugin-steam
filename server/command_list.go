@@ -8,7 +8,7 @@ import (
 )
 
 func (p *Plugin) runListGamesCommand(args []string, extra *model.CommandArgs) (*model.CommandResponse, bool, error) {
-	result, err := p.makeSteamAPICall(extra.UserId+SteamUserKey, STEAM_API_GETOWNEDGAMES)
+	result, err := p.makeSteamAPICall(extra.UserId+SteamUserKey, steamAPIGetOwnedGames)
 	if err != nil {
 		return nil, false, err
 	}

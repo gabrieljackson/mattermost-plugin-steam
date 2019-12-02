@@ -11,14 +11,17 @@ import (
 	"github.com/pkg/errors"
 )
 
+//PlayersListResponse is an API response for a list of Steam players.
 type PlayersListResponse struct {
 	Response PlayersList `json:"response"`
 }
 
+// PlayersList is a list of Steam players.
 type PlayersList struct {
 	Players []Player `json:"players"`
 }
 
+// Player is Steam player information.
 type Player struct {
 	SteamID     string `json:"steamid"`
 	PersonaName string `json:"personaname"`
