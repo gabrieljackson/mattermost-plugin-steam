@@ -12,7 +12,7 @@ func (p *Plugin) makeSteamAPICall(userKey, endpoint string) ([]byte, error) {
 		return nil, err
 	}
 
-	url := fmt.Sprintf("https://api.steampowered.com/%s/?key=%s&steamid=%s&include_appinfo=true&format=json", endpoint, userInfo.APIToken, userInfo.SteamID)
+	url := fmt.Sprintf("https://api.steampowered.com/%s/?key=%s&steamid=%s&include_appinfo=true&include_played_free_games=true&format=json", endpoint, userInfo.APIToken, userInfo.SteamID)
 
 	return steamAPICall(url)
 }
